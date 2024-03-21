@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    @model Semana4RH.Models.Usuarios
+        
+    if(ViewBag.ins == "true")
+            {
+<script>>alert('Usuario:'+ @ViewBag.user + 'guardado!!')</script>
+            }
+
+}
+
+<h2>Usuarios</h2>
+
+<fieldset>
+    <legend>Formulario de soporte</legend>
+
+    @using (Html.BeginForm("Usuarios", "home", FormMethod.Post))
+    {
+        @Html.ValidationSummary("", new {@class = "text-danger"})
+
+
+        @Html.LabelFor(m => m.userid, null, htmlAttributes: new { @class = "label label-danger" })
+        @Html.TextBoxFor(m => m.userid, null, htmlAttributes: new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.username, null, htmlAttributes: new { @class = "label label-danger" })
+        @Html.TextBoxFor(m => m.username, null, htmlAttributes: new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.pass, null, htmlAttributes: new { @class = "label label-danger" })
+        @Html.TextBoxFor(m => m.pass, null, htmlAttributes: new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.nivel, null, htmlAttributes: new { @class = "label label-danger" })
+        @Html.TextBoxFor(m => m.nivel, null, htmlAttributes: new { @class = "form-control" })
+        <br />
+        <br />
+        <input type="submit" value="Enviar" class="btn btn-success"/>
+
+    }
+</fieldset>
+
